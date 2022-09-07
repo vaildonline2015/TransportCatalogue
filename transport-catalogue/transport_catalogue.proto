@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+package serialize;
+
+import "map_renderer.proto";
+import "svg.proto";
+import "transport_router.proto";
+
+message RoadDistance {
+	string stop_name = 1;
+	int32 distance = 2;
+}
+
+message StopData {
+	string name = 1;
+	double latitude = 2;
+	double longitude = 3;
+	repeated RoadDistance road_distances = 4;
+}
+
+message BusData {
+	bool is_roundtrip = 1;
+	string name = 2;
+	repeated string stops = 3;
+}
+
+message TransportCatalogue {
+	repeated BusData buses_data = 1;
+	repeated StopData stops_data = 2;
+	RenderSettings render_settings = 3;
+	RoutingSettings routing_settings = 4;
+	RoutesInternalData routes_data = 5;
+}

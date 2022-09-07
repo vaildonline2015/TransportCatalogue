@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package serialize;
+
+message EdgeId {
+	uint64  value = 1;
+}
+
+message MyDouble {
+	double  value = 1;
+}
+
+message RouteInternalData {
+	MyDouble  weight = 1;
+	EdgeId  prev_edge = 2;	
+}
+
+message VectorOfRouteInternalData {
+	repeated RouteInternalData route_data = 1;
+}
+
+message RoutesInternalData {
+	repeated VectorOfRouteInternalData routes_data = 1;
+}

@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package serialize;
+
+message RoutingSettings {
+	double bus_velocity = 1;
+	uint64 bus_wait_time = 2;
+}

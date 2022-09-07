@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+package serialize;
+
+message Opacity {
+	double value = 1;
+}
+
+message Color {
+	uint32 red = 1;
+	uint32 green = 2;
+	uint32 blue = 3;
+	Opacity opacity = 4;
+	string color_str = 5;
+}
+
+message Point {
+	double x = 1;
+	double y = 2;
+}
+
+message RenderSettings {
+ 	repeated Color stroke_colors = 1; 
+	double line_width = 2;  
+	double map_width = 3;  
+	double map_height = 4;  
+	double map_padding = 5;  	
+ 	Point bus_label_offset = 6;	 
+	uint32 bus_label_font_size = 7;  
+	Color underlayer_color = 8;	
+	double underlayer_width = 9;  
+	double stop_radius = 10;  	
+	Point stop_label_offset = 11;  
+	uint32 stop_label_font_size = 12;  	
+}
